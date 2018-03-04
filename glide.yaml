@@ -1,0 +1,4 @@
+package: github.com/Khigashiguchi/profile-site
+import:
+- package: github.com/labstack/echo
+  version: ~3.2.6
