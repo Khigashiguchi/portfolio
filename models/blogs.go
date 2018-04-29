@@ -4,8 +4,9 @@ import "database/sql"
 
 type Blog struct {
 	ID int `json:"id"`
-	Title string `json:"name"`
+	Title string `json:"title"`
 	URL string `json:"url"`
+	Published string `json:"published"`
 }
 
 type BlogCollection struct {
@@ -23,7 +24,7 @@ func GetBlogs(db *sql.DB) BlogCollection {
 	result := BlogCollection{}
 	for rows.Next() {
 		blog := Blog{}
-		err := rows.Scan(&blog.ID, &blog.Title, &blog.URL)
+		err := rows.Scan(&blog.ID, &blog.Title, &blog.URL, &blog.Published)
 		if err != nil {
 			panic(err)
 		}
