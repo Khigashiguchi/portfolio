@@ -7,6 +7,9 @@ import (
 func main() {
 	e := echo.New()
 
+	// Routes
 	e.Static("/", "public")
-	e.Start(":8080")
+
+	// Start server
+	e.Logger.Fatal(e.Start(":8080"))
 }
