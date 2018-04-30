@@ -16,6 +16,7 @@ func main() {
     // Routes
     e.Static("/", "public")
     e.GET("/blogs", handlers.GetBlogs(db))
+    e.POST("/blogs", handlers.PostBlog(db))
 
     // Start server
     e.Logger.Fatal(e.Start(":8080"))

@@ -32,3 +32,20 @@ func GetBlogs(db *sql.DB) BlogCollection {
 	}
 	return result
 }
+
+func PostBlog(db *sql.DB, title string, url string, published string) (int64, error) {
+    sql := "INSERT INTO blogs(title, url, published) VALUES(?, ?, ?)"
+
+    stmt, err := db.Prepare(sql)
+    if err != nil {
+        panic(err)
+    }
+    defer stmt.Close()
+
+    result, err := stmt.Exec(title, url, published)
+    if err != nil {
+        panic(err)
+    }
+
+    return result.LastInsertId()
+}
