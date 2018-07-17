@@ -1,3 +1,4 @@
-vendor/*
+vendor
+tmp
+!tmp/empty
 .idea
-storage.db
