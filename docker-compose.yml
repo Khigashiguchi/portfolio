@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+    api:
+        container_name: "api"
+        build:
+            context: ./app
+            dockerfile: ../docker/app/localhost/Dockerfile
+        volumes:
+          - ".:${GO_PROJECT_DIR}"
+          - "~/.ssh/id_rsa:/root/.ssh/id_rsa"
+        ports:
+            - 8080:8080
+        links:
+            - mysql_master
+        environment:
+            GO_WORK_DIR: "${GO_PROJECT_DIR}/app"
+            APP_ENV: "localhost"
+
+    mysql_master:
+        container_name: "mysql_master"
+        image: mysql:5.6 #Aurora
+        ports:
+            - "3306:3306"
+        expose:
+            - 3306
+        environment:
+            MYSQL_ROOT_PASSWORD: 507a678922af5dc9
+            MYSQL_DATABASE: portfolio
+            MYSQL_USER: portfolio
+            MYSQL_PASSWORD: 865507a8922af
+
