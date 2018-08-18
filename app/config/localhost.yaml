@@ -1,0 +1,8 @@
+DB:
+    Host: mysql_master
+    Port: 3306
+    Name: portfolio
+    User: portfolio
+    Password: 865507a8922af
+    SQLMode: TRADITIONAL,NO_AUTO_VALUE_ON_ZERO,ONLY_FULL_GROUP_BY
+

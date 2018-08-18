@@ -3,13 +3,13 @@ package repository
 import (
 	"database/sql"
 
-	"github.com/Khigashiguchi/profile-site/domain/model"
+	"github.com/Khigashiguchi/portfolio/app/domain/model"
 )
 
 func GetBlogs(db *sql.DB) (model.BlogCollection, error) {
 	result := model.BlogCollection{}
 
-	sql := "SELECT * FROM blogs"
+	sql := "SELECT id, title, url, published FROM blogs"
 	rows, err := db.Query(sql)
 	if err != nil {
 		return result, err

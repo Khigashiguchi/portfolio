@@ -6,8 +6,8 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/Khigashiguchi/profile-site/domain/model"
-	"github.com/Khigashiguchi/profile-site/domain/repository"
+	"github.com/Khigashiguchi/portfolio/app/domain/model"
+	"github.com/Khigashiguchi/portfolio/app/domain/repository"
 )
 
 type BlogHandler struct {
